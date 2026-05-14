@@ -26,16 +26,20 @@
   }
 
   .overlay-text {
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     font-family: 'Fira Code', monospace;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-shadow: 0 0 20px rgba(255,77,109,0.8), 0 0 40px rgba(255,77,109,0.4);
     animation: pulse 2s ease-in-out infinite;
     z-index: 10;
     pointer-events: none;
+    white-space: nowrap;
   }
 
   @keyframes pulse {
@@ -90,8 +94,8 @@ const COUNT = 350;
 function initParticles() {
   particles.length = 0;
   const cx = canvas.width / 2;
-  const cy = canvas.height / 2;
-  const scale = Math.min(canvas.width, canvas.height) / 38;
+  const cy = canvas.height / 2 - canvas.height * 0.03;
+  const scale = Math.min(canvas.width, canvas.height) / 34;
 
   for (let i = 0; i < COUNT; i++) {
     const t = (Math.random() * 2 - 1) * Math.PI;
